@@ -1,0 +1,36 @@
+
+nuget {
+	// the nuspec file metadata. Gets created/updated on build
+	nuspec {
+		id = dirent;
+		version : 1.13;
+		title: Dirent API for Windows;
+		authors: {Toni Ronkko, Garrett Serack};
+		owners: {CoApp Project, Garrett Serack};
+		licenseUrl: "";
+		projectUrl: "http://softagalleria.net/download/dirent/?C=M;O=D";
+		iconUrl: http://coapp.org/images/logo-small_32x32.png;
+		requireLicenseAcceptance:false;
+		summary: dirent.h - dirent API for Microsoft Visual Studio;
+		description: @"dirent.h - dirent API for Microsoft Visual Studio";
+		releaseNotes: "...";
+		copyright: Copyright (C) 2006-2012 Toni Ronkko;
+		tags: { dirent, native, CoApp };
+
+	};
+
+	// the files that go into the content folders
+	// (inserted into the nuspec file)
+	files {
+		include: { 
+            dirent.h
+        };
+	};
+
+	// the VC++ .targets file that gets generated and inserted into the ${d_content} folder
+	targets {
+		// every configuration needs to reference the include directories.
+		Defines += HAS_DIRENT;
+	};
+}
+
